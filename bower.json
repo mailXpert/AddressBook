@@ -1,0 +1,26 @@
+{
+  "name": "AddressBook",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mailXpert/AddressBook",
+  "authors": [
+    "Jean-Christophe Cuvelier <jcc@artack.ch>"
+  ],
+  "description": "AddressBook is a demo application to demonstrate the capabilities of the mailXpert API",
+  "main": "web/index.php",
+  "keywords": [
+    "mailxpert",
+    "api"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/ui",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1"
+  }
+}

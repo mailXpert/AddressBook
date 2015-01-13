@@ -1,0 +1,19 @@
+{
+    "name": "mailxpert/addressbook",
+    "description": "AddressBook is a demo application to demonstrate the capabilities of the mailXpert API",
+    "require": {
+        "guzzlehttp/guzzle": "~5.1",
+        "symfony/routing": "~2.6",
+        "symfony/yaml": "~2.6",
+        "symfony/http-foundation": "~2.6",
+        "symfony/templating": "~2.6",
+        "twig/twig": "~1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jean-Christophe Cuvelier",
+            "email": "jcc@artack.ch"
+        }
+    ]
+}

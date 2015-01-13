@@ -1,0 +1,10 @@
+index:
+  path: /
+  controller: '\AddressBook\Controller\MainController'
+  action: index
+
+login:
+  path: /login
+  controller: '\AddressBook\Controller\MainController'
+  action: login
+

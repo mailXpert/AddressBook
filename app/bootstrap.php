@@ -46,7 +46,7 @@ try {
     try {
         $match = $matcher->matchRequest($request);
 
-        $controller = new $match['controller']($request, $templating);
+        $controller = new $match['controller']($request, $templating, $parameters['parameters']);
 
         echo call_user_func([$controller, 'renderAction'], $match['action']);
 

@@ -1,5 +1,6 @@
 parameters:
-  mailxpert_api_uri:  http://mailxpert.dev/api/v2.0/
-  client_id: test
-  client_secret: test
-  redirect_uri: http://localhost:8000/code
+  mailxpert_api_uri:  https://api.mailxpert.com/api/v2.0
+  mailxpert_oauth_uri:  https://v5.mailxpert.com/oauth/v2
+  client_id: 3_3b37i1hyyj0go04scw0skwgwgs0c8840o4kcko8kgw80kcwo0w
+  client_secret: 37zcc6qyq5a8cgc8wckk4w0w0o08kkw08socccogssw88kc4k4
+  redirect_uri: http://localhost:8000/login

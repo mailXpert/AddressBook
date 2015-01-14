@@ -27,12 +27,18 @@ abstract class BaseController
      */
     private $parameters;
 
-    public function __construct(Request $request, TwigEngine $engine, array $parameters)
+    /**
+     * @var array
+     */
+    private $route;
+
+    public function __construct(Request $request, TwigEngine $engine, array $parameters, array $route)
     {
 
         $this->engine = $engine;
         $this->request = $request;
         $this->parameters = $parameters;
+        $this->route = $route;
     }
 
     /**
@@ -68,7 +74,7 @@ abstract class BaseController
 
     public function renderAction($action)
     {
-        if ($action != 'login' && !$this->getRequest()->getSession()->get('access_token')) {
+        if ($action != 'login' && !$this->getToken()) {
             $this->redirect('/login');
         }
 
@@ -84,6 +90,39 @@ abstract class BaseController
     {
         header('Location: ' . $path);
         exit;
+    }
+
+    public function getToken()
+    {
+        return $this->getRequest()->getSession()->get('token', null);
+    }
+
+    public function setToken($token)
+    {
+        $this->getRequest()->getSession()->set('token', $token);
+    }
+
+    /**
+     * @return array
+     */
+    public function getRoute()
+    {
+        return $this->route;
+    }
+
+    /**
+     * @param string $key
+     * @param mixed  $default
+     *
+     * @return mixed
+     */
+    public function getRouteParameter($key, $default = null)
+    {
+        if (array_key_exists($key, $this->route)) {
+            return $this->route[$key];
+        } else {
+            return $default;
+        }
     }
 
 }

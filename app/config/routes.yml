@@ -8,3 +8,22 @@ login:
   controller: '\AddressBook\Controller\MainController'
   action: login
 
+contact_lists:
+  path: /contact_lists
+  controller: '\AddressBook\Controller\MainController'
+  action: contactLists
+
+contact_list_create:
+  path: /contact_list/create
+  controller: '\AddressBook\Controller\MainController'
+  action: createContactList
+
+contact_list_delete:
+  path: /contact_list/delete/{id}
+  controller: '\AddressBook\Controller\MainController'
+  action: deleteContactList
+
+contact_list:
+  path: /contact_list/{id}
+  controller: '\AddressBook\Controller\MainController'
+  action: contactList

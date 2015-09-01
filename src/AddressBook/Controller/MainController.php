@@ -58,7 +58,7 @@ class MainController extends BaseController
     {
         $token = $this->getToken();
 
-        $client = new Client(['base_url' => $this->getParameter('mailxpert_api_uri'), 'defaults' => ['query' => ['access_token' => $token['access_token']]]]);
+        $client = new Client(['base_url' => $this->getParameter('mailxpert_api_uri'), 'defaults' => ['headers' => ['Authorization' => 'Bearer ' . $token['access_token']]]]);
 
         $response = $client->get('contact_lists');
 
@@ -74,7 +74,7 @@ class MainController extends BaseController
         if ('' != $name = trim($this->getRequest()->get('name'))) {
             $token = $this->getToken();
 
-            $client = new Client(['base_url' => $this->getParameter('mailxpert_api_uri'), 'defaults' => ['query' => ['access_token' => $token['access_token']]]]);
+            $client = new Client(['base_url' => $this->getParameter('mailxpert_api_uri'), 'defaults' => ['headers' => ['Authorization' => 'Bearer ' . $token['access_token']]]]);
 
             $response = $client->post(
                 'contact_lists',
@@ -83,7 +83,7 @@ class MainController extends BaseController
                 ]
             );
 
-            // Will return simething like "/api/v2.0/contact_lists/3"
+            // Will return simething like "/v2.0/contact_lists/3"
             $location = $response->getHeader('Location');
 
             $this->redirect('/contact_lists');
@@ -98,7 +98,7 @@ class MainController extends BaseController
 
             $token = $this->getToken();
 
-            $client = new Client(['base_url' => $this->getParameter('mailxpert_api_uri'), 'defaults' => ['query' => ['access_token' => $token['access_token']]]]);
+            $client = new Client(['base_url' => $this->getParameter('mailxpert_api_uri'), 'defaults' => ['headers' => ['Authorization' => 'Bearer ' . $token['access_token']]]]);
 
             $client->delete(['contact_lists/{id}', ['id' => $id]]);
         }
@@ -112,7 +112,7 @@ class MainController extends BaseController
 
             $token = $this->getToken();
 
-            $client = new Client(['base_url' => $this->getParameter('mailxpert_api_uri'), 'defaults' => ['query' => ['access_token' => $token['access_token']]]]);
+            $client = new Client(['base_url' => $this->getParameter('mailxpert_api_uri'), 'defaults' => ['query' => ['Authorization' => 'Bearer ' . $token['access_token']]]]);
 
             $response = $client->get(['contact_lists/{id}', ['id' => $id]]);
 
